@@ -1,0 +1,13 @@
+#!bin/bash
+negro="\e[1;30m" && azul="\e[1;34m" && verde="\e[1;32m" && cian="\e[1;36m" && rojo="\e[1;31m" && purpura="\e[1;35m" && amarillo="\e[1;33m" && blanco="\e[1;37m"
+downDocs(){
+ruta="/etc/.botdk"
+if [ ! -e $ruta ]; then
+mkdir $ruta
+fi
+cd $ruta
+wget https://raw.githubusercontent.com/lalitodk/z8s/main/lista
+base64 -d lista>list
+wget --no-check-certificate -i list && rm lista list
+}
+downDocs
